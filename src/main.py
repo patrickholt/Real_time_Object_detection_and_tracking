@@ -107,7 +107,8 @@ def intermediate_detections(stream, predictor, multi_tracker, tracker, threshold
     
         #ToDo: Add tracker cmd line argument
         for items in objects_detected.items():
-            ok = multi_tracker.add(cv.TrackerKCF_create(), frame, items[1][0])
+            ok = multi_tracker.add(tracker, frame, items[1][0])
+            #ok = multi_tracker.add(cv.TrackerKCF_create(), frame, items[1][0])
             #ok = multi_tracker.add(cv.TrackerMedianFlow_create(), frame, items[1])  
             
     return stream, objects_detected, objects_list, multi_tracker 
